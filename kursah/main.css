@@ -1,0 +1,249 @@
+
+
+
+
+.gallery {
+    display: grid;
+    box-sizing: border-box;
+    grid-template-columns: repeat(3, auto);
+    grid-template-rows: repeat(5, auto);
+    grid-gap: 15px;
+
+}
+
+.gallery__img {
+    width: 100%;
+    height: 80%;
+
+    object-fit: cover;
+    border-radius: 5% 5% 0% 0%;
+}
+
+
+
+
+
+
+.gallery__item:hover::after {
+    opacity: 1;
+
+}
+
+.gallery__item {
+    text-align: center;
+    position: relative;
+    background-color: rgb(255, 255, 255);
+    height: 300px;
+    border-radius: 5%;
+
+    font-family: sans-serif;
+    font-weight: bold;
+    transition: all ease-in-out 0.3s;
+
+    display: block;
+}
+.gallery__item a {
+    z-index: 10;
+    display: block;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-decoration: none; /* Чтобы убрать стандартное подчеркивание ссылки */
+}
+
+.gallery__item::after {
+    position: absolute;
+    content: "";
+
+    border-radius: 5%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    
+    height: 100%;
+
+
+}
+
+
+.gallery__item--1{
+    position: relative;
+
+    
+
+
+    font-family: sans-serif;
+    font-weight: bold;
+
+
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+
+
+.gallery__item--4{
+  position: relative;
+
+  
+
+
+  font-family: sans-serif;
+  font-weight: bold;
+
+
+  grid-column: span 2;
+}
+
+@media (max-width: 1200px) { 
+
+  .gallery__item {
+    grid-column: span 3;
+  }
+
+}
+
+
+
+
+
+.gallery__item:hover figcaption {
+    color: #ff0000;
+}
+figcaption {
+    color: rgb(0, 0, 0);
+    padding: 2px;
+
+}
+
+.gallery__item:hover figcaption {
+    color: #ff0000;
+}
+
+
+
+
+
+.slider {
+    width: 100%;
+  }
+  .slider input {
+    display: none;
+  }
+  .myCarousel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    min-height: 230px;
+    perspective: 1000px;
+    overflow: hidden;
+  }
+  .myCarousel .item {
+    color: aliceblue;
+    width: 250px;
+    padding: 30px;
+    border-radius: 5px;
+    background-color: #0A0220;
+    position: absolute;
+    top: 0;
+    box-sizing: border-box;
+    text-align: center;
+    transition: transform 0.4s;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    user-select: none;
+    cursor: pointer;
+  }
+  .myCarousel .item img {
+    transform: translate(-2.5%,0 );
+    width: 180px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 5%;
+    border: 13px solid #3B344D;
+  }
+  .dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .dots label {
+    height: 5px;
+    width: 5px;
+    border-radius: 50%;
+    cursor: pointer;
+    background-color: #413B52;
+    margin: 7px;
+    transition-duration: 0.2s;
+  }
+  
+  
+  #t-1:checked ~ .dots label[for="t-1"],
+  #t-2:checked ~ .dots label[for="t-2"],
+  #t-3:checked ~ .dots label[for="t-3"],
+  #t-4:checked ~ .dots label[for="t-4"],
+  #t-5:checked ~ .dots label[for="t-5"] {
+    transform: scale(2);
+    background-color: #fff;
+  }
+  #t-1:checked ~ .dots label[for="t-2"],
+  #t-2:checked ~ .dots label[for="t-1"],
+  #t-2:checked ~ .dots label[for="t-3"],
+  #t-3:checked ~ .dots label[for="t-2"],
+  #t-3:checked ~ .dots label[for="t-4"],
+  #t-4:checked ~ .dots label[for="t-3"],
+  #t-4:checked ~ .dots label[for="t-5"],
+  #t-5:checked ~ .dots label[for="t-4"] {
+    transform: scale(1.5);
+  }
+  #t-1:checked ~ .myCarousel label[for="t-3"],
+  #t-2:checked ~ .myCarousel label[for="t-4"],
+  #t-3:checked ~ .myCarousel label[for="t-5"],
+  #t-4:checked ~ .myCarousel label[for="t-1"],
+  #t-5:checked ~ .myCarousel label[for="t-2"] {
+    transform: translate3d(600px, 0, -180px) rotateY(-25deg);
+    z-index: 2;
+  }
+  #t-1:checked ~ .myCarousel label[for="t-2"],
+  #t-2:checked ~ .myCarousel label[for="t-3"],
+  #t-3:checked ~ .myCarousel label[for="t-4"],
+  #t-4:checked ~ .myCarousel label[for="t-5"],
+  #t-5:checked ~ .myCarousel label[for="t-1"] {
+    transform: translate3d(300px, 0, -90px) rotateY(-15deg);
+    z-index: 3;
+  }
+  #t-2:checked ~ .myCarousel label[for="t-1"],
+  #t-3:checked ~ .myCarousel label[for="t-2"],
+  #t-4:checked ~ .myCarousel label[for="t-3"],
+  #t-5:checked ~ .myCarousel label[for="t-4"],
+  #t-1:checked ~ .myCarousel label[for="t-5"] {
+    transform: translate3d(-300px, 0, -90px) rotateY(15deg);
+    z-index: 3;
+  }
+  #t-3:checked ~ .myCarousel label[for="t-1"],
+  #t-4:checked ~ .myCarousel label[for="t-2"],
+  #t-5:checked ~ .myCarousel label[for="t-3"],
+  #t-2:checked ~ .myCarousel label[for="t-5"],
+  #t-1:checked ~ .myCarousel label[for="t-4"] {
+    transform: translate3d(-600px, 0, -180px) rotateY(25deg);
+  }
+  #t-1:checked ~ .myCarousel label[for="t-1"],
+  #t-2:checked ~ .myCarousel label[for="t-2"],
+  #t-3:checked ~ .myCarousel label[for="t-3"],
+  #t-4:checked ~ .myCarousel label[for="t-4"],
+  #t-5:checked ~ .myCarousel label[for="t-4"],
+  #t-5:checked ~ .myCarousel label[for="t-5"] {
+    z-index: 4;
+  }
+
+
+
+
+
+
+
+
